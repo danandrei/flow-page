@@ -1,0 +1,27 @@
+{
+  "name": "flow-page",
+  "version": "0.1.0",
+  "description": "Flow wrapper for page.js",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/danandrei/flow-page.git"
+  },
+  "keywords": [
+    "flow",
+    "router",
+    "page.js"
+  ],
+  "author": "danandrei",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/danandrei/flow-page/issues"
+  },
+  "homepage": "https://github.com/danandrei/flow-page#readme",
+  "dependencies": {
+    "page.js": "^4.13.3"
+  }
+}
