@@ -11,9 +11,9 @@ module.exports = (config) => {
         throw new Error('Invalid config object');
     }
 
-    Page({
-        popstate: true
-    });
+    // set page.js options
+    config.options = config.options || {};
+    Page(config.options);
 
     Object.keys(config.routes).forEach(path => {
         Page(path, (context) => {
@@ -24,8 +24,15 @@ module.exports = (config) => {
         });
     });
 
+    // not found
     Page('*', ctx => {
-        console.log('not found');
+
+        if (config.notFound) {
+            self.emit('pageChanged', {
+                name: config.notFound,
+                context: {}
+            });
+        }
     });
 
     if (config.initialDispatch) {
@@ -39,5 +46,10 @@ module.exports = (config) => {
 };
 
 function page (url) {
+
+    if (typeof url !== 'string') {
+        return;
+    }
+
     Page(url);
 }
