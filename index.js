@@ -40,16 +40,22 @@ module.exports = (config) => {
     }
 
     // exported methods
-    self.page = page;
+    self.page = (url) => {
+
+        if (typeof url !== 'string') {
+            return;
+        }
+
+        Page(url);
+    };
+    self.redirect = (url) => {
+
+        if (typeof url !== 'string') {
+            return;
+        }
+
+        Page.redirect(url);
+    }
 
     return self;
 };
-
-function page (url) {
-
-    if (typeof url !== 'string') {
-        return;
-    }
-
-    Page(url);
-}
